@@ -23,12 +23,12 @@ namespace consign_max.Repositories
             //Based on EF team's example at https://github.com/aspnet/MusicStore/blob/dev/samples/MusicStore/Models/SampleData.cs
             using (var serviceScope = serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                var mesDb = serviceScope.ServiceProvider.GetService<ConsignMaxDbContext>();
-                if (await mesDb.Database.EnsureCreatedAsync())
+                var consighMaxDb = serviceScope.ServiceProvider.GetService<ConsignMaxDbContext>();
+                if (await consighMaxDb.Database.EnsureCreatedAsync())
                 {
-                    if (!await mesDb.Items.AnyAsync())
+                    if (!await consighMaxDb.Items.AnyAsync())
                     {
-                        await InsertItemsSampleData(mesDb);
+                        await InsertItemsSampleData(consighMaxDb);
                     }
                 }
             }
