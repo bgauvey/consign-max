@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{97F1DF08-573B-4301-A921-B269FF2F1E88}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="consign-max/Models/Item.cs">
+    <Files>
+      <File FileName="consign-max/Models/Item.cs" Line="14" Column="6" />
+      <File FileName="consign-max/Models/ApiResponse.cs" />
+      <File FileName="consign-max/Models/Consignor.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="consign-max" expanded="True" selected="True">
+            <Node name="consign-max" expanded="True">
+              <Node name="APIs" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.consign-max PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

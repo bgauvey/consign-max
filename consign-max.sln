@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "consign-max", "consign-max\consign-max.csproj", "{97F1DF08-573B-4301-A921-B269FF2F1E88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97F1DF08-573B-4301-A921-B269FF2F1E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97F1DF08-573B-4301-A921-B269FF2F1E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97F1DF08-573B-4301-A921-B269FF2F1E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97F1DF08-573B-4301-A921-B269FF2F1E88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
