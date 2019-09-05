@@ -11,7 +11,9 @@ namespace consign_max.Repositories
     {
         public ConsignMaxDbContext(DbContextOptions<ConsignMaxDbContext> options) : base(options) { }
 
+        public DbSet<Consignor> Consignors { get; set; }
         public DbSet<Item> Items { get; set; }
+        public DbSet<State> States { get; set; }
 
     }
 }

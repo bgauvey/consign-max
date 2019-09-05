@@ -36,6 +36,10 @@ namespace consign_max
                 configuration.RootPath = "Client/dist";
             });
 
+            services.AddScoped<IConsignorsRepository, ConsignorsRepository>();
+            services.AddScoped<IStatesRepository, StatesRepository>();
+            services.AddTransient<ConsignMaxDbSeeder>();
+
             services.AddCors(o => o.AddPolicy("AllowAllPolicy", options =>
             {
                 options.AllowAnyOrigin()
