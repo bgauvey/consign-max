@@ -24,4 +24,12 @@ export class DashboardComponent implements OnInit {
       { id: 39436, name: 'Genoveva', creation: '2015-11-05', color: 'Indigo' }
     ];
   }
+
+  onEdit(user: any) {
+
+  }
+
+  onDelete(user: any) {
+
+  }
 }
