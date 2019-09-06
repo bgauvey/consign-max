@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/data.service';
 import { IConsigner, IPagedResults } from '../shared/interfaces';
 import { DataFilterService } from '../core/data-filter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,9 @@ export class DashboardComponent implements OnInit {
   totalRecords = 0;
   pageSize = 10;
 
-  constructor(private dataService: DataService, private dataFilter: DataFilterService) {}
+  constructor(private dataService: DataService,
+    private dataFilter: DataFilterService,
+    private router: Router, ) {}
 
   ngOnInit() {
     this.title = 'Customers';
@@ -60,7 +63,9 @@ export class DashboardComponent implements OnInit {
       );
   }
 
-  onEdit(user: any) {}
+  onEdit(consigner: IConsigner) {
+    this.router.navigate(['consigner-details', consigner.id]);
+  }
 
   onDelete(user: any) {}
 }
