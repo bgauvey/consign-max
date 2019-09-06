@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/data.service';
 import { IConsigner, IPagedResults } from '../shared/interfaces';
+import { DataFilterService } from '../core/data-filter.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,7 @@ export class DashboardComponent implements OnInit {
   totalRecords = 0;
   pageSize = 10;
 
-  constructor(private dataService: DataService, private dataFilter: any) {}
+  constructor(private dataService: DataService, private dataFilter: DataFilterService) {}
 
   ngOnInit() {
     this.title = 'Customers';
