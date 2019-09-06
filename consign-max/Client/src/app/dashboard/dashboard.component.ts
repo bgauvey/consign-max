@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../core/data.service';
+import { IConsigner, IPagedResults } from '../shared/interfaces';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,30 +8,58 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  users = [];
-  constructor() {}
+  title: string;
+  consigners: IConsigner[] = [];
+  filteredConsigners: IConsigner[] = [];
+
+  totalRecords = 0;
+  pageSize = 10;
+
+  constructor(private dataService: DataService, private dataFilter: any) {}
 
   ngOnInit() {
-    this.users = [
-      { id: 19451, name: 'Bill', creation: '2017-11-23', color: 'Red' },
-      { id: 86205, name: 'Lottie', creation: '2016-12-26', color: 'Yellow' },
-      { id: 14096, name: 'Darla', creation: '2016-10-15', color: 'Purple' },
-      { id: 91080, name: 'Graham', creation: '2015-07-14', color: 'Black' },
-      { id: 91011, name: 'Brad', creation: '2016-11-26', color: 'Violet' },
-      { id: 83962, name: 'Keenan', creation: '2017-08-18', color: 'Orange' },
-      { id: 6166, name: 'Jeana', creation: '2017-01-22', color: 'Indigo' },
-      { id: 18717, name: 'Debby', creation: '2018-06-21', color: 'Magenta' },
-      { id: 55824, name: 'Roslyn', creation: '2016-07-01', color: 'Orange' },
-      { id: 24328, name: 'Sheridan', creation: '2016-07-25', color: 'Orange' },
-      { id: 39436, name: 'Genoveva', creation: '2015-11-05', color: 'Indigo' }
-    ];
+    this.title = 'Customers';
+    this.getConsignersPage(1);
   }
 
-  onEdit(user: any) {
-
+  filterChanged(filterText: string) {
+    if (filterText && this.consigners) {
+      const props = [
+        'firstName',
+        'lastName',
+        'address',
+        'city',
+        'state.name',
+        'amountDue'
+      ];
+      this.filteredConsigners = this.dataFilter.filter(
+        this.consigners,
+        props,
+        filterText
+      );
+    } else {
+      this.filteredConsigners = this.consigners;
+    }
   }
 
-  onDelete(user: any) {
-
+  pageChanged(page: number) {
+    this.getConsignersPage(page);
   }
+
+  getConsignersPage(page: number) {
+    this.dataService
+      .getConsignersPage((page - 1) * this.pageSize, this.pageSize)
+      .subscribe(
+        (response: IPagedResults<IConsigner[]>) => {
+          this.consigners = this.filteredConsigners = response.results;
+          this.totalRecords = response.totalRecords;
+        },
+        (err: any) => console.log(err),
+        () => console.log('getConsignersPage() retrieved consigners')
+      );
+  }
+
+  onEdit(user: any) {}
+
+  onDelete(user: any) {}
 }
