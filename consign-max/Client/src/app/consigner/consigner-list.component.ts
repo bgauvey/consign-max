@@ -5,11 +5,11 @@ import { DataFilterService } from '../core/data-filter.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-consigner-list',
+  templateUrl: './consigner-list.component.html',
+  styleUrls: ['./consigner-list.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class ConsignerListComponent implements OnInit {
   title: string;
   consigners: IConsigner[] = [];
   filteredConsigners: IConsigner[] = [];

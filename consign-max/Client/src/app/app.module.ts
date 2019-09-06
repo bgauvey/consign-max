@@ -7,16 +7,16 @@ import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { ConsignerListComponent } from './consigner/consigner-list.component';
 import { InteractiveAnalyticsComponent } from './interactive-analytics/interactive-analytics.component';
 import { ManagementComponent } from './management/management.component';
-import { ConsignerDetailsComponent } from './consigner-details/consigner-details.component';
+import { ConsignerDetailsComponent } from './consigner/consigner-details.component';
 import { PosComponent } from './pos/pos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    ConsignerListComponent,
     InteractiveAnalyticsComponent,
     ManagementComponent,
     ConsignerDetailsComponent,
