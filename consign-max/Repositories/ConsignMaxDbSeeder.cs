@@ -97,6 +97,38 @@ namespace consign_max.Repositories
                         }
                     }
                 },
+
+                new Consignor
+                {
+                    LastName = "Smith",
+                    FirstName = "Robert",
+                    AddressLine1 = "123 Amity St",
+                    City = "Phoenix",
+                    State = new State { Abbreviation = "AZ", Name = "Arizona" },
+                    Zip = "85974",
+                    MobilePhone = "3589642231",
+                    Commission = .6,
+                    EmailAddress = "bobsmith@yahoo.com",
+                    AddressLine2 = "Suite 20A",
+                    MiddleInitial = "W",
+                    Items = new List<Item>
+                    {
+                        new Item
+                        {
+                             Description = "Used Surgery Table",
+                             AskingPrice = 490.0,
+                             Commission = .6,
+                             MinimumPrice = 475
+                        },
+                        new Item
+                        {
+                             Description = "Bone Saw",
+                             AskingPrice = 125,
+                             Commission = .6,
+                             MinimumPrice = 120
+                        }
+                    }
+                },
             };
 
             return consignors;
