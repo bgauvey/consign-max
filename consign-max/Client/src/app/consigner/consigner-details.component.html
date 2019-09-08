@@ -1,1 +1,97 @@
-<p>consigner-details works!</p>
+<form clrForm clrLayout="horizontal" [formGroup]="consignerForm" (ngSubmit)="submit(consignerForm)" novalidate>
+  <clr-input-container>
+    <label>Last Name</label>
+    <input clrInput type="text" formControlName="lastName"  required/>
+    <clr-control-error>Last name is required</clr-control-error>
+  </clr-input-container>
+  <clr-input-container>
+      <label>First Name</label>
+      <input clrInput type="text" formControlName="firstName" required/>
+      <clr-control-error>First name is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Address Line 1</label>
+    <input clrInput type="text" formControlName="addressLine1" required/>
+    <clr-control-error>Address is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Address Line 2</label>
+    <input clrInput type="text" formControlName="addressLine2" />
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>City</label>
+    <input clrInput type="text" formControlName="city" required/>
+    <clr-control-error>City is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-select-container>
+    <label>State</label>
+    <select clrSelect formControlName="stateId">
+      <option *ngFor="let state of states" [ngValue]="state.id">{{state.name}}</option>
+    </select>
+    <clr-control-error>State is required!</clr-control-error>
+  </clr-select-container>
+
+  <button type="submit" class="btn btn-success" [disabled]="!consignerForm.valid || consignerForm.pristine">{{ operationText }}</button>
+  <button (click)="deleteMessageEnabled=true" class="btn btn-danger">Delete</button>
+
+  <button (click)="cancel($event)" class="btn btn-primary">Cancel</button>
+</form>
+
+
+<clr-modal [(clrModalOpen)]="deleteMessageEnabled">
+    <h3 class="modal-title">DELETE</h3>
+    <div class="modal-body">
+        <p>Delete this consigner and all data?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="deleteMessageEnabled=false">Cancel</button>
+        <button type="button" class="btn btn-danger" (click)="delete($event)">Ok</button>
+    </div>
+</clr-modal>
+
+
+<clr-tabs>
+  <clr-tab>
+    <button clrTabLink>Active Consignments</button>
+    <clr-tab-content *clrIfActive="true">
+
+      <clr-datagrid>
+        <clr-dg-column>Item</clr-dg-column>
+        <clr-dg-column>Description</clr-dg-column>
+        <clr-dg-column>Asking Price</clr-dg-column>
+        <clr-dg-column>Minimum Price</clr-dg-column>
+        <clr-dg-column>Posting Date</clr-dg-column>
+        <clr-dg-column>Commission</clr-dg-column>
+        <clr-dg-column>Sell Day Limit</clr-dg-column>
+        <clr-dg-column>Listing Fee</clr-dg-column>
+
+        <clr-dg-row *ngFor="let item of consigner.items" [clrDgItem]="item">
+            <clr-dg-cell>{{item.id}}</clr-dg-cell>
+            <clr-dg-cell>{{item.description}}</clr-dg-cell>
+            <clr-dg-cell>{{item.askingPrice | currency}}</clr-dg-cell>
+            <clr-dg-cell>{{item.minimumPrice | currency}}</clr-dg-cell>
+            <clr-dg-cell>{{item.createDate | date}}</clr-dg-cell>
+            <clr-dg-cell>{{item.commission | percent}}</clr-dg-cell>
+            <clr-dg-cell>{{item.saleDayLimit}}</clr-dg-cell>
+            <clr-dg-cell>{{item.listingFee | currency}}</clr-dg-cell>
+        </clr-dg-row>
+      </clr-datagrid>
+    </clr-tab-content>
+  </clr-tab>
+  <clr-tab>
+    <button clrTabLink>Inventory</button>
+    <clr-tab-content>
+      Inventory
+    </clr-tab-content>
+  </clr-tab>
+  <clr-tab>
+    <button clrTabLink>Payments</button>
+    <clr-tab-content>
+      Payments
+    </clr-tab-content>
+  </clr-tab>
+</clr-tabs>

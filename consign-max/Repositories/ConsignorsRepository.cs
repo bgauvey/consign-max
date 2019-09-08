@@ -22,7 +22,9 @@ namespace consign_max.Repositories
         public async Task<List<Consignor>> GetConsignorsAsync()
         {
             return await _Context.Consignors.OrderBy(c => c.LastName)
-                .Include(c => c.State).ToListAsync();
+                                 .Include(c => c.State)
+                                 .Include(c => c.Items)
+                                 .ToListAsync();
         }
 
         public async Task<PagingResult<Consignor>> GetConsignorsPageAsync(int skip, int take)
@@ -41,7 +43,8 @@ namespace consign_max.Repositories
         public async Task<Consignor> GetConsignorAsync(int id)
         {
             return await _Context.Consignors
-                                 .Include(c => c.State)
+                                  .Include(c => c.State)
+                                 .Include(c => c.Items)
                                  .SingleOrDefaultAsync(c => c.Id == id);
         }
 

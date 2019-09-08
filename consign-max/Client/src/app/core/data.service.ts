@@ -48,7 +48,7 @@ export class DataService {
       );
   }
 
-  getConsigner(id: string): Observable<IConsigner> {
+  getConsigner(id: number): Observable<IConsigner> {
     return this.http
       .get<IConsigner>(this.baseConsignersUrl + '/' + id)
       .pipe(catchError(this.handleError));
@@ -81,7 +81,7 @@ export class DataService {
       );
   }
 
-  deleteConsigner(id: string): Observable<boolean> {
+  deleteConsigner(id: number): Observable<boolean> {
     return this.http
       .delete<boolean>(this.baseConsignersUrl + '/' + id)
       .pipe(catchError(this.handleError));

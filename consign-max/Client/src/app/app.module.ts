@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { ManagementComponent } from './management/management.component';
 import { ConsignerDetailsComponent } from './consigner/consigner-details.component';
 import { PosComponent } from './pos/pos.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,8 @@ import { PosComponent } from './pos/pos.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     ClarityModule,

@@ -19,6 +19,7 @@ export interface IConsigner {
   items: IItem[];
   amountDue: number;
   numConsignments: number;
+  stateId: number;
 }
 
 export interface IState {
