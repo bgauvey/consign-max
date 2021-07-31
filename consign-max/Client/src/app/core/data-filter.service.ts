@@ -30,7 +30,7 @@ export class DataFilterService {
                         match = true;
                         break;
                     }
-                };
+                }
                 return match;
             });
             return filtered;
